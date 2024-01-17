@@ -53,12 +53,16 @@ public class EmployeeService {
         return false;
     }
     public boolean deleteEmployeeById(Long id) {
+        if (repository.existsById(id)){
+            repository.deleteById(id);
+        }
         //Check if employee already exists
         //Remove and return true if it exists.
-        return repository.existsById(id);
-
+        return true;
+        
         //Otherwise return false.
     }
+
 
 
 }
