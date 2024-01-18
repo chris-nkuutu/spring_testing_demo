@@ -48,17 +48,9 @@ public class EmployeeService {
      *
      * @return One Employee
      */
-    public boolean updateEmployeeById(Long id, Employee employee) {
-        if (repository.existsById(id)) {
+    public Employee updateEmployeeById(Long id, Employee employee) {
             employee.setId(id);
-            repository.save(employee);
-
-            //Remove and return true if it exists.
-            return true;
-        }
-
-        //Otherwise return false.
-        return false;
+        return repository.save(employee);
     }
 
     public boolean deleteEmployeeById(Long id) {

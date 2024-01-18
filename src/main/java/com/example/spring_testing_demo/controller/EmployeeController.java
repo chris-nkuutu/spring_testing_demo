@@ -48,7 +48,7 @@ public class EmployeeController {
      *  PUT:  localhost:8080/employee/6
      */
     @PutMapping("/{id}")
-    public boolean putEmployee(@PathVariable long id,@RequestBody Employee employee){
+    public Employee putEmployee(@PathVariable long id,@RequestBody Employee employee){
         return service.updateEmployeeById(id,employee);
     }
     /**
@@ -61,7 +61,7 @@ public class EmployeeController {
         return service.deleteEmployeeById(id);
     }
     @PostMapping("/seed")
-    public Iterable<Employee> postSeedEmployees(){
+    public Iterable<Employee> seedEmployees(){
         return service.seedEmployees();
     }
 
