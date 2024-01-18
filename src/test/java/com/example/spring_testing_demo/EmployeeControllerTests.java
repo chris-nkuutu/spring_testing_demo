@@ -34,7 +34,7 @@ public class EmployeeControllerTests {
 
          mockMvc.perform(MockMvcRequestBuilders.get("/api/employees"))
                          .andExpect(status().isOk())
-                 .andExpect(jsonPath("$", hasSize(3)))
+                         .andExpect(jsonPath("$", hasSize(4)))
 
 
          ;
