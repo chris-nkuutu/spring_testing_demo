@@ -34,7 +34,7 @@ public class EmployeeControllerTests {
 
          mockMvc.perform(MockMvcRequestBuilders.get("/api/employees"))
                          .andExpect(status().isOk())
-                         .andExpect(jsonPath("$", hasSize(4)))
+                         .andExpect(jsonPath("$", hasSize(5)))
 
 
          ;
@@ -46,7 +46,8 @@ public class EmployeeControllerTests {
                 new Employee("Chris", 3000),
                 new Employee("Kalle", 2000),
                 new Employee("Brian", 2000),
-                new Employee("Sefukko", 2600)
+                new Employee("Sefukko", 2600),
+                new Employee("Marko", 2600)
         };
 
         return Arrays.stream(employeesArray).toList();
