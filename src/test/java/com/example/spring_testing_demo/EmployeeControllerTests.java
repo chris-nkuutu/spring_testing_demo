@@ -45,7 +45,8 @@ public class EmployeeControllerTests {
         Employee[] employeesArray = {
                 new Employee("Chris", 3000),
                 new Employee("Kalle", 2000),
-                new Employee("Brian", 2000)
+                new Employee("Brian", 2000),
+                new Employee("Sefukko", 2600)
         };
 
         return Arrays.stream(employeesArray).toList();
