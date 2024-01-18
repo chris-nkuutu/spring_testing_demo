@@ -12,7 +12,9 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import java.util.Arrays;
 
+import static org.hamcrest.Matchers.hasSize;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
@@ -30,8 +32,12 @@ public class EmployeeControllerTests {
 
          when(service.getAllEmployees()).thenReturn(getMockEmployees());
 
-         mockMvc.perform(MockMvcRequestBuilders.get("/api/employees")).
-                 andExpect(status().isOk());
+         mockMvc.perform(MockMvcRequestBuilders.get("/api/employees"))
+                         .andExpect(status().isOk())
+                 .andExpect(jsonPath("$", hasSize(3)))
+
+
+         ;
 
     }
 
