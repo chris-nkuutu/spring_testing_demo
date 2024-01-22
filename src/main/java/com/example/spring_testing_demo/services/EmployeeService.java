@@ -1,11 +1,10 @@
 package com.example.spring_testing_demo.services;
 
+import com.example.spring_testing_demo.exception.EmployeeNotFoundException;
 import com.example.spring_testing_demo.models.Employee;
-import com.example.spring_testing_demo.reposiyory.EmployeeRepository;
-import jakarta.persistence.Id;
+import com.example.spring_testing_demo.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.Arrays;
 import java.util.Optional;
@@ -31,6 +30,8 @@ public class EmployeeService {
      * @return One Employee
      */
     public Optional<Employee> getEmployeeById(Long id) {
+        if (repository.findById(id).isEmpty())
+            throw new EmployeeNotFoundException();
         return repository.findById(id);
     }
 
